@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Comment Bank — Islamic Studies | By Mr Mohamed Roshdi</title>
+<style>
+  :root{--bg:#fff;--bg2:#f5f5f7;--bg3:#ebebed;--text:#1a1a1a;--text2:#555;--text3:#888;--border:#ddd;--border2:#e8e8e8;--radius:10px;--radius-sm:6px;--shadow:0 2px 12px rgba(0,0,0,.07);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg2);color:var(--text);min-height:100vh;}
+  .topbar{background:#1a2e1a;color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .topbar-left{display:flex;align-items:center;gap:10px;}
+  .topbar-logo{width:36px;height:36px;background:linear-gradient(135deg,#2e7d32,#1b5e20);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0;text-align:center;line-height:1.2;}
+  .topbar-title{font-size:14px;font-weight:600;}
+  .topbar-sub{font-size:11px;color:#aab;margin-top:1px;}
+  .topbar-badges{display:flex;gap:6px;flex-wrap:wrap;}
+  .badge{font-size:10.5px;padding:3px 9px;border-radius:20px;border:1px solid rgba(255,255,255,.2);color:#ccd;}
+  .main{max-width:880px;margin:0 auto;padding:24px 16px 60px;}
+  .header-card{background:var(--bg);border-radius:var(--radius);padding:20px 24px;margin-bottom:20px;box-shadow:var(--shadow);border-left:4px solid #2e7d32;}
+  .header-card h1{font-size:17px;font-weight:700;margin-bottom:6px;}
+  .header-card h1 span{color:#2e7d32;}
+  .header-card p{font-size:12.5px;color:var(--text2);line-height:1.6;}
+  .header-card .meta{margin-top:10px;font-size:12px;color:var(--text3);display:flex;gap:8px;flex-wrap:wrap;}
+  .header-card .meta span{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:2px 10px;}
+  .domains{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .domain{font-size:11.5px;padding:5px 12px;border-radius:20px;font-weight:500;}
+  .fmt{background:#fffbea;border:1px solid #f0e080;border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;color:#7a6500;margin-bottom:12px;line-height:1.6;}
+  .char-info{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:var(--radius-sm);padding:8px 14px;font-size:12px;color:#1b5e20;margin-bottom:20px;}
+  .level-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+  .ltb{padding:8px 18px;border-radius:var(--radius-sm);border:2px solid transparent;background:var(--bg);cursor:pointer;font-size:13px;font-weight:500;color:var(--text2);transition:all .15s;box-shadow:var(--shadow);}
+  .ltb:hover{transform:translateY(-1px);}
+  .ltb.wk{border-color:#ef9a9a;} .ltb.wk.active{background:#ffebee;border-color:#c62828;color:#b71c1c;}
+  .ltb.ac{border-color:#ffcc80;} .ltb.ac.active{background:#fff3e0;border-color:#e65100;color:#bf360c;}
+  .ltb.gd{border-color:#a5d6a7;} .ltb.gd.active{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;}
+  .ltb.vg{border-color:#90caf9;} .ltb.vg.active{background:#e3f2fd;border-color:#1565c0;color:#0d47a1;}
+  .ltb.os{border-color:#ce93d8;} .ltb.os.active{background:#f3e5f5;border-color:#6a1b9a;color:#4a148c;}
+  .level-frame{border-radius:var(--radius);padding:20px;border:2px solid transparent;transition:all .2s;}
+  .lf-weak{border-color:#c62828;background:#ffebee;}
+  .lf-acceptable{border-color:#e65100;background:#fff3e0;}
+  .lf-good{border-color:#2e7d32;background:#e8f5e9;}
+  .lf-vgood{border-color:#1565c0;background:#e3f2fd;}
+  .lf-outstanding{border-color:#6a1b9a;background:#f3e5f5;}
+  .pat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+  .ptb{padding:6px 13px;border-radius:var(--radius-sm);border:2px solid transparent;cursor:pointer;font-size:12px;font-weight:500;background:#fff;transition:all .15s;}
+  .ptb:hover{opacity:.85;}
+  .card{background:#fff;border-radius:var(--radius);padding:20px;border:2px solid transparent;box-shadow:var(--shadow);}
+  .pat-label{display:inline-block;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;color:#fff;margin-bottom:16px;letter-spacing:.03em;}
+  .sec-label{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
+  .pt{font-size:13px;color:var(--text2);line-height:1.65;padding:9px 12px;border-radius:var(--radius-sm);background:var(--bg2);margin-bottom:5px;cursor:pointer;border-left:3px solid transparent;transition:all .15s;}
+  .pt:hover{background:var(--bg3);transform:translateX(2px);}
+  .pt.s{border-left-color:#2e7d32;} .pt.d{border-left-color:#e65100;}
+  .pt-hint{font-size:10px;color:var(--text3);margin-bottom:6px;}
+  .divider{height:1px;background:var(--border2);margin:16px 0;}
+  .sec-copy{width:100%;padding:7px;font-size:12px;cursor:pointer;border-radius:var(--radius-sm);border:1px solid var(--border);background:transparent;color:var(--text2);margin-top:8px;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .sec-copy:hover{background:var(--bg2);color:var(--text);}
+  .full-copy{width:100%;padding:9px;font-size:13px;font-weight:600;cursor:pointer;border-radius:var(--radius-sm);border:1px solid var(--border);background:transparent;color:var(--text);margin-top:12px;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .full-copy:hover{background:var(--bg2);}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a2e1a;color:#fff;font-size:13px;padding:9px 20px;border-radius:30px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,.2);}
+  .toast.show{opacity:1;}
+  .footer{text-align:center;font-size:11px;color:var(--text3);padding:24px 16px 12px;}
+  @media(max-width:600px){.topbar{padding:12px 16px;}.main{padding:16px 12px 60px;}.header-card{padding:16px;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">IS</div>
+    <div>
+      <div class="topbar-title">Comment Bank — Islamic Studies</div>
+      <div class="topbar-sub">By Mr Mohamed Roshdi</div>
+    </div>
+  </div>
+  <div class="topbar-badges">
+    <span class="badge">MangeBac</span>
+    <span class="badge">iSAMS</span>
+    <span class="badge">UAE Curriculum</span>
+  </div>
+</div>
+
+<div class="main">
+  <div class="header-card">
+    <h1>Comment Bank — <span>Islamic Studies</span> &nbsp;·&nbsp; MangeBac &amp; iSAMS</h1>
+    <p>تعليقات مصاغة وفق معايير المناهج الإماراتية في التربية الإسلامية · مجالات: القرآن الكريم · العقيدة والأخلاق · الفقه والعبادات · السيرة النبوية<br>اضغط على أي جملة لنسخها · أو استخدم أزرار النسخ السريع</p>
+    <div class="meta">
+      <span>✦ By Mr Mohamed Roshdi</span>
+      <span>MangeBac · iSAMS</span>
+      <span>UAE Islamic Studies Curriculum</span>
+    </div>
+  </div>
+
+  <div class="domains">
+    <span class="domain" style="background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7">📖 القرآن الكريم</span>
+    <span class="domain" style="background:#fff3e0;color:#bf360c;border:1px solid #ffcc80">🌙 العقيدة والأخلاق</span>
+    <span class="domain" style="background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9">🕌 الفقه والعبادات</span>
+    <span class="domain" style="background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8">⭐ السيرة النبوية</span>
+  </div>
+
+  <div class="fmt"><strong>تنسيق MangeBac / iSAMS:</strong> &nbsp;– نقطة · مسافة · الوصف · بدون نقطة نهاية · أول كلمة كبيرة</div>
+  <div class="char-info">✅ جميع التعليقات مضبوطة ضمن حد <strong>345 حرف</strong> — جاهزة للصق مباشرة بدون أخطاء</div>
+
+  <div class="level-tabs">
+    <button class="ltb wk active" onclick="showLevel('weak')">Weak</button>
+    <button class="ltb ac" onclick="showLevel('acceptable')">Acceptable</button>
+    <button class="ltb gd" onclick="showLevel('good')">Good</button>
+    <button class="ltb vg" onclick="showLevel('vgood')">Very Good</button>
+    <button class="ltb os" onclick="showLevel('outstanding')">Outstanding</button>
+  </div>
+
+  <div id="level-wrap" class="level-frame lf-weak">
+    <div class="pat-tabs" id="ptabs"></div>
+    <div id="area"></div>
+  </div>
+</div>
+
+<div class="footer">Comment Bank · Islamic Studies · By Mr Mohamed Roshdi · MangeBac &amp; iSAMS · UAE Curriculum</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const LS={
+  weak:{frame:'lf-weak',pc:['#c62828','#b71c1c','#e53935','#d32f2f','#7f0000'],pb:['#ffebee','#ffcdd2','#ef9a9a','#ffebee','#ffcdd2']},
+  acceptable:{frame:'lf-acceptable',pc:['#e65100','#bf360c','#d84315','#f4511e','#8d2600'],pb:['#fff3e0','#ffe0b2','#ffcc80','#fff3e0','#ffe0b2']},
+  good:{frame:'lf-good',pc:['#2e7d32','#1b5e20','#388e3c','#43a047','#0a3d0a'],pb:['#e8f5e9','#c8e6c9','#a5d6a7','#e8f5e9','#c8e6c9']},
+  vgood:{frame:'lf-vgood',pc:['#1565c0','#0d47a1','#1976d2','#1e88e5','#002171'],pb:['#e3f2fd','#bbdefb','#90caf9','#e3f2fd','#bbdefb']},
+  outstanding:{frame:'lf-outstanding',pc:['#6a1b9a','#4a148c','#7b1fa2','#8e24aa','#2d0066'],pb:['#f3e5f5','#e1bee7','#ce93d8','#f3e5f5','#e1bee7']}
+};
+
+const D={
+weak:{patterns:[
+{label:'Pattern 1',
+ s:['Shows emerging awareness of basic Islamic concepts and responds to simple guided questions with support','Attempts to recite familiar Quranic verses with teacher assistance, demonstrating early engagement with the text','Demonstrates a basic understanding of core pillars of faith when supported by visual aids and structured tasks'],
+ d:['Develop Quranic recitation skills through daily listening and repetition using approved recitation resources','Strengthen understanding of basic worship provisions and the pillars of Islam through structured review activities','Begin to engage with Prophetic biography by identifying key figures and events with teacher guidance and support']},
+{label:'Pattern 2',
+ s:['Recognises familiar Islamic terms and concepts when presented in simple, structured learning contexts','Shows willingness to participate in Islamic Studies activities and makes an effort in guided memorisation tasks','Demonstrates basic awareness of Islamic conduct and the importance of following the example of the Prophet'],
+ d:['Practise Quranic memorisation daily by focusing on short verses and reviewing them with a trusted resource','Consolidate knowledge of basic jurisprudential rulings through regular review and completion of classwork','Engage more actively in Seerah lessons by asking questions and connecting events to everyday Islamic values']},
+{label:'Pattern 3',
+ s:['Identifies the main pillars of Islam and faith when prompted, showing foundational religious awareness','Participates in recitation activities with support and demonstrates developing familiarity with assigned verses','Shows early understanding of the importance of worship and Islamic values in daily life'],
+ d:['Build Quranic recitation fluency by listening to a qualified Qari daily and imitating correct pronunciation','Review jurisprudence and worship provisions regularly to strengthen understanding of Islamic obligations','Develop engagement with Prophetic biography by studying key events and reflecting on their moral lessons']},
+{label:'Pattern 4',
+ s:['Shows developing recognition of core concepts in Hadith and basic jurisprudential rulings with teacher support','Demonstrates early progress in memorising assigned Quranic verses and engages with recitation tasks when guided','Displays an emerging awareness of Islamic values and the example set by the Prophet in daily conduct'],
+ d:['Memorise assigned Quranic verses by repeating short sections daily and recording recitation for self-review','Complete homework regularly and review class material to reinforce understanding of core Islamic concepts','Improve Seerah engagement by identifying connections between Prophetic events and contemporary Islamic values']},
+{label:'Pattern 5',
+ s:['Demonstrates awareness of the foundations of faith and basic Islamic principles at an introductory level','Shows effort in Quranic recitation tasks and is beginning to recognise familiar verses with growing confidence','Follows basic Islamic classroom conduct and shows respect for the values and teachings studied'],
+ d:['Strengthen Quranic memorisation by practising assigned verses daily with a focus on accuracy and consistency','Regularly review learned material and complete all homework to consolidate foundational Islamic knowledge','Engage with Prophetic biography content by connecting the Prophet\'s example to personal values and daily behaviour']}
+]},
+acceptable:{patterns:[
+{label:'Pattern 1',
+ s:['Recites assigned Quranic verses with a few errors and shows developing awareness of basic Tajweed rules','Understands the main concepts in selected Hadiths and can identify their moral and jurisprudential implications','Demonstrates satisfactory knowledge of the pillars of Islam and faith in structured lesson contexts'],
+ d:['Improve Quranic recitation accuracy by practising daily with an approved Qari and focusing on Tajweed rules','Consolidate understanding of jurisprudential rulings through regular review of class material and homework','Develop a more connected understanding of Prophetic biography by exploring the significance of key events']},
+{label:'Pattern 2',
+ s:['Shows understanding of broad jurisprudential rulings and can apply some worship provisions with guidance','Demonstrates familiarity with Prophetic biography and identifies key figures and events with reasonable accuracy','Recites Noble verses with developing fluency and makes an effort to apply basic recitation rules'],
+ d:['Build recitation skills by listening regularly to a Qari and imitating correct Tajweed pronunciation','Review jurisprudence material consistently to move from basic recall to confident application in daily life','Strengthen Seerah knowledge by drawing connections between historical events and their Islamic significance']},
+{label:'Pattern 3',
+ s:['Has an understanding of the main concepts in the Noble Hadith and can explain their relevance with some detail','Exhibits satisfactory understanding of worship provisions and demonstrates developing application in daily life','Shows progress in Quranic memorisation and engages with recitation tasks with growing independence'],
+ d:['Practise Quranic recitation daily and use self-recording to identify and correct recurring pronunciation errors','Review worship and jurisprudence material regularly to develop more accurate application of Islamic rulings','Engage with Prophetic biography more critically by analysing events and drawing lessons for personal conduct']},
+{label:'Pattern 4',
+ s:['Demonstrates understanding of the subject through guided discussions and can articulate key Islamic concepts','Recites assigned verses with minor errors and shows awareness of the importance of Tajweed in recitation','Shows developing knowledge of Islamic jurisprudence and its application to acts of worship in everyday life'],
+ d:['Memorise Quranic verses by repeating short sections consistently and seeking regular feedback on recitation accuracy','Complete all review tasks and assignments to deepen understanding of Islamic jurisprudential concepts','Improve Prophetic biography comprehension by paying closer attention to key details and their moral implications']},
+{label:'Pattern 5',
+ s:['Draws basic lessons and moral reflections from Islamic events and Hadith studied in class','Understands the main concepts related to faith, worship, and Islamic conduct with satisfactory accuracy','Shows progress in memorisation tasks and demonstrates a positive attitude toward Islamic Studies learning'],
+ d:['Develop recitation fluency through daily practice and consistent engagement with approved recitation resources','Review class material regularly and complete homework consistently to improve retention of Islamic knowledge','Strengthen Seerah engagement by reviewing Prophetic biography independently and connecting it to daily values']}
+]},
+good:{patterns:[
+{label:'Pattern 1',
+ s:['Recites Quranic verses with generally good accuracy and applies Tajweed rules with developing consistency','Demonstrates a sound understanding of jurisprudential rulings and worship provisions in familiar contexts','Shows good knowledge of Prophetic biography and can identify key events and their significance with clarity'],
+ d:['Extend recitation skills by focusing on precise Tajweed application across a wider range of assigned verses','Deepen jurisprudential understanding by exploring the reasoning behind rulings and their daily application','Develop ability to analyse Prophetic biography critically and draw broader lessons for contemporary Muslim life']},
+{label:'Pattern 2',
+ s:['Has a solid understanding of the meanings of selected Quranic vocabulary and Noble Hadith in context','Demonstrates good awareness of the pillars of faith and can explain their significance with reasonable depth','Analyses various situations in Prophetic biography and draws appropriate moral and spiritual conclusions'],
+ d:['Improve Quranic memorisation by reviewing assigned verses daily with attention to precise letter articulation','Extend jurisprudential understanding by connecting rulings more explicitly to acts of worship in daily life','Build a more comprehensive view of Prophetic biography by exploring links between events and their lasting impact']},
+{label:'Pattern 3',
+ s:['Memorises assigned Quranic verses with only minor errors and demonstrates growing fluency in recitation','Understands and applies the rituals of worship with generally good accuracy in familiar and structured contexts','Draws relevant lessons from Prophetic biography and shows appreciation for the Prophet\'s example in daily conduct'],
+ d:['Strengthen recitation by listening to a qualified Qari and applying Tajweed rules more consistently in practice','Develop deeper understanding of jurisprudence by reviewing rulings in varied real-life worship contexts','Analyse Seerah events more critically to identify their implications for Muslim identity and contemporary life']},
+{label:'Pattern 4',
+ s:['Demonstrates the ability to analyse faith-related situations and draw sound Islamic conclusions with guidance','Exhibits good understanding of worship and jurisprudential concepts and applies them with developing independence','Shows sympathy toward and emulation of the Prophet\'s character and conduct in classroom and learning contexts'],
+ d:['Refine Quranic recitation through daily self-directed practice with a focus on accurate Tajweed application','Consolidate jurisprudential knowledge by practising its application in a range of worship-related contexts','Deepen Prophetic biography knowledge by tracing the development of key events and their broader significance']},
+{label:'Pattern 5',
+ s:['Possesses ability to understand jurisprudential rules and applies them to acts of worship with good accuracy','Demonstrates solid progress in Quranic memorisation and engages independently with recitation improvement','Shows a well-developed understanding of the pillars of Islam and faith through detailed and accurate responses'],
+ d:['Pursue more advanced Quranic memorisation goals by setting a consistent daily schedule and tracking progress','Strengthen jurisprudential understanding by exploring the evidence and reasoning underpinning key rulings','Develop a holistic understanding of Prophetic biography by connecting different phases of the Seerah thematically']}
+]},
+vgood:{patterns:[
+{label:'Pattern 1',
+ s:['Demonstrates excellent knowledge of worship provisions and jurisprudential rulings with strong conceptual clarity','Recites Quranic verses with high accuracy and applies Tajweed rules with consistent and commendable precision','Has a comprehensive understanding of Prophetic biography and articulates the significance of key events in depth'],
+ d:['Extend Quranic mastery by applying Tajweed rules to a broader range of verses and engaging in peer recitation','Deepen jurisprudential knowledge by exploring scholarly perspectives and their application to daily worship','Develop critical analysis of Prophetic biography by examining the implications of key events for Muslim life']},
+{label:'Pattern 2',
+ s:['Analyses faith-related situations with insight and draws well-reasoned conclusions grounded in Islamic knowledge','Has a thorough understanding of broad jurisprudential rulings and applies them accurately in relevant contexts','Demonstrates strong memorisation of Quranic verses and Hadiths with high accuracy and developing fluency'],
+ d:['Further develop Quranic recitation by pursuing self-directed Tajweed refinement and seeking qualified feedback','Extend jurisprudential analysis by exploring connections between rulings and their underlying Islamic principles','Develop ability to draw thematic connections across different phases of the Prophetic biography independently']},
+{label:'Pattern 3',
+ s:['Memorises Quranic verses and Hadiths with strong accuracy and applies Tajweed rules with notable consistency','Understands and applies the pillars of faith and worship provisions confidently across a range of contexts','Draws insightful lessons from Prophetic biography and connects them meaningfully to Islamic values in daily life'],
+ d:['Pursue advanced memorisation goals for Quranic verses and Hadiths through a structured and consistent routine','Strengthen the ability to apply jurisprudential rulings in complex and unfamiliar worship-related scenarios','Analyse the Seerah more critically by identifying patterns across events and exploring their scholarly significance']},
+{label:'Pattern 4',
+ s:['Demonstrates a high level of understanding of Islamic jurisprudence and applies rulings with confidence and accuracy','Shows strong engagement with Prophetic biography and presents detailed, evidence-based analysis of key events','Recites Quranic verses with excellent fluency and demonstrates mastery of the majority of assigned Tajweed rules'],
+ d:['Refine recitation to an advanced level by applying all Tajweed rules consistently and seeking expert review','Deepen jurisprudential mastery by exploring the reasoning of Islamic scholars and applying it to complex cases','Develop evaluative approach to Prophetic biography by examining multiple perspectives on key events and figures']},
+{label:'Pattern 5',
+ s:['Exhibits a sophisticated understanding of Islamic concepts across Quran, Hadith, jurisprudence, and Seerah domains','Applies Islamic knowledge to real-life contexts with strong accuracy and demonstrates mature spiritual reflection','Demonstrates excellent progress in Quranic memorisation and recitation with a high degree of independence'],
+ d:['Set advanced Quranic memorisation targets and develop a self-monitoring system to track accuracy and fluency','Pursue deeper engagement with jurisprudential scholarship to develop evaluative thinking beyond classroom content','Develop ability to synthesise knowledge across Seerah, Hadith, and jurisprudence to produce holistic responses']}
+]},
+outstanding:{patterns:[
+{label:'Pattern 1',
+ s:['Demonstrates exceptional mastery of Quranic recitation with precise Tajweed application and outstanding fluency','Exhibits comprehensive understanding of Islamic jurisprudence, applying rulings with clarity and scholarly depth','Has an in-depth critical understanding of Prophetic biography and articulates its contemporary relevance well'],
+ d:['Pursue Ijazah-level recitation standards by engaging with a qualified Tajweed scholar for advanced feedback','Extend jurisprudential mastery by engaging with classical Islamic texts and exploring scholarly differences','Develop academic-level Seerah analysis by evaluating historiographical perspectives and their significance']},
+{label:'Pattern 2',
+ s:['Recites Quranic verses with exceptional precision and demonstrates mastery of all assigned Tajweed rules','Analyses faith-related and jurisprudential questions with outstanding insight and intellectual rigour','Shows exemplary emulation of the Prophet\'s character and reflects this through conduct in the school community'],
+ d:['Engage with advanced Quranic memorisation beyond assigned texts, targeting extended Surahs with Tajweed accuracy','Explore complex jurisprudential issues by examining scholarly opinions and developing well-reasoned analysis','Pursue independent research into Prophetic biography to develop original insights and present them to peers']},
+{label:'Pattern 3',
+ s:['Demonstrates outstanding breadth and depth of knowledge across all Islamic Studies domains with high accuracy','Produces insightful analysis of Prophetic biography and draws sophisticated lessons for contemporary Muslim life','Memorises Quranic verses and Hadiths with exceptional accuracy and applies Tajweed at a consistently high level'],
+ d:['Seek opportunities to lead peer recitation sessions and support classmates in developing their Tajweed skills','Extend jurisprudential knowledge by engaging with primary sources and developing evaluative scholarly responses','Contribute to Seerah discussion by presenting original research and well-structured arguments to the class']},
+{label:'Pattern 4',
+ s:['Possesses exemplary command of Islamic jurisprudential rulings and applies them with accuracy and scholarly depth','Demonstrates mastery of Quranic memorisation and recitation and serves as a positive model for peers in class','Exhibits exceptional understanding of Prophetic biography and its spiritual and civilisational significance'],
+ d:['Pursue advanced Islamic study beyond the curriculum by engaging with classical texts and scholarly commentaries','Develop ability to write extended analytical responses on jurisprudential issues with evidence-based reasoning','Take on a leadership role in Seerah discussions by presenting original analysis and facilitating peer reflection']},
+{label:'Pattern 5',
+ s:['Shows exemplary dedication to Islamic learning and outstanding achievement across all assessed curriculum domains','Integrates Quranic knowledge, jurisprudential understanding, and Seerah insight to produce coherent responses','Recites the Noble Quran with mastery-level Tajweed precision and demonstrates a strong commitment to practice'],
+ d:['Engage with Ijazah-level recitation programmes to formalise and extend Quranic mastery beyond the curriculum','Develop original scholarly responses to jurisprudential questions by engaging with classical and modern texts','Pursue advanced independent study of Prophetic biography and present findings to peers and the wider community']}
+]}
+};
+
+let curLevel='weak',curPat=0;
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+function renderPatternTabs(){const st=LS[curLevel];document.getElementById('ptabs').innerHTML=D[curLevel].patterns.map((p,i)=>{const a=i===curPat;return`<button class="ptb" onclick="selectPat(${i})" style="border-color:${st.pc[i]};background:${a?st.pb[i]:'#fff'};color:${a?st.pc[i]:'#666'}">${p.label}</button>`;}).join('');}
+function renderPattern(){
+  const st=LS[curLevel],p=D[curLevel].patterns[curPat],col=st.pc[curPat],bg=st.pb[curPat];
+  const sLines=p.s.map(x=>'– '+x).join('\n'),dLines=p.d.map(x=>'– '+x).join('\n'),full=sLines+'\n\n'+dLines;
+  const sPts=p.s.map(x=>`<div class="pt s" data-text="– ${x}">– ${x}</div>`).join('');
+  const dPts=p.d.map(x=>`<div class="pt d" data-text="– ${x}">– ${x}</div>`).join('');
+  const area=document.getElementById('area');
+  area.innerHTML=`<div class="card" style="border-color:${col};background:${bg};"><span class="pat-label" style="background:${col};">${p.label}</span><div class="sec-label">⭐ Strengths</div><div class="pt-hint">اضغط على أي جملة لنسخها</div>${sPts}<button class="sec-copy" id="btn-s">⧉ Copy strengths</button><div class="divider"></div><div class="sec-label">↑ Areas for development</div><div class="pt-hint">اضغط على أي جملة لنسخها</div>${dPts}<button class="sec-copy" id="btn-d">⧉ Copy areas for development</button><button class="full-copy" id="btn-f">⎘ Copy full comment block</button></div>`;
+  area.querySelectorAll('.pt').forEach(el=>{el.addEventListener('click',()=>{navigator.clipboard.writeText(el.dataset.text).then(()=>showToast('Copied!'));});});
+  document.getElementById('btn-s').addEventListener('click',()=>{navigator.clipboard.writeText(sLines).then(()=>showToast('Strengths copied!'));});
+  document.getElementById('btn-d').addEventListener('click',()=>{navigator.clipboard.writeText(dLines).then(()=>showToast('Areas for development copied!'));});
+  document.getElementById('btn-f').addEventListener('click',()=>{navigator.clipboard.writeText(full).then(()=>showToast('Full block copied!'));});
+}
+function selectPat(i){curPat=i;renderPatternTabs();renderPattern();}
+function showLevel(level){curLevel=level;curPat=0;document.querySelectorAll('.ltb').forEach(b=>b.classList.remove('active'));const map={weak:'wk',acceptable:'ac',good:'gd',vgood:'vg',outstanding:'os'};document.querySelector('.ltb.'+map[level]).classList.add('active');document.getElementById('level-wrap').className='level-frame '+LS[level].frame;renderPatternTabs();renderPattern();}
+showLevel('weak');
+</script>
+</body>
+</html>
